@@ -5,7 +5,7 @@ import {ROUTES} from "../../utils/routes";
 import {useSelector} from "react-redux";
 
 const SideBar = () => {
-    const list = useSelector(state => state)
+    const {list} = useSelector(({categories}) => categories)
     console.log(list, "list")
     return (
         <section className={styles.sidebar}>
@@ -14,8 +14,19 @@ const SideBar = () => {
             </div>
             <nav>
                 <ul className={styles.menu}>
+                    {list.map(({id, name}) => {
+                        return (
+                            <li key={id}>
+                                <NavLink
+                                    className={({isActive}) => `${styles.link} ${isActive ? styles.active : ""}`}
+                                    to={`/categories/${id}`}
+                                >
+                                    {name}</NavLink>
+                            </li>
+                        )
+                    })}
                     <li>
-                        <NavLink to={`/categories/${1}`} >
+                        <NavLink to={`/categories/${1}`}>
                             Link
                         </NavLink>
                     </li>

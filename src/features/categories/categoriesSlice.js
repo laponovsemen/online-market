@@ -15,7 +15,7 @@ export const getCategories = createAsyncThunk(
         return thunkAPI.rejectWithValue(e)
     }
 })
-export const categoriesSlice = createSlice({
+const categoriesSlice = createSlice({
     name: "categories",
     initialState: {
         list: [],
@@ -39,3 +39,5 @@ export const categoriesSlice = createSlice({
         })
     }
 })
+
+export default categoriesSlice.reducer
