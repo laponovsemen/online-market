@@ -19,6 +19,7 @@ export const categoriesSlice = createSlice({
     name: "categories",
     initialState: {
         list: [],
+
         isLoading: false,
     },
     extraReducers: (builder) => {
